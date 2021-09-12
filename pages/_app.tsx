@@ -1,35 +1,23 @@
 import React from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import App from "next/app";
+import { ThemeProvider } from "styled-components";
+import Layout from "../components/Layout";
+import { AppProvider } from "../contexts/AppContext";
+import { GlobalStyle, theme } from "../Styles/global";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
 
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
-
-export type Theme = typeof theme;
-
-export default function App({
-  Component,
-  pageProps,
-}: {
-  Component: React.FC;
-  pageProps: any;
-}) {
-  return (
-    <>
+export default class MyApp extends App {
+  render() {
+    const {Component, pageProps } = this.props;
+    return <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <AppProvider>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </AppProvider>
     </>
-  );
+  }
 }

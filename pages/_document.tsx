@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 // eslint-disable-next-line @next/next/no-document-import-in-page
-import Document from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -28,5 +28,19 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render () {
+    return (
+      <Html>
+        <Head>
+          <link rel="stylesheet" href="http://fonts.cdnfonts.com/css/sofia-pro" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }

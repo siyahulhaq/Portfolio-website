@@ -1,11 +1,18 @@
-import styled from "styled-components";
-import { Theme } from "./_app";
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
-`;
+import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
-  return <Title>Home page</Title>;
+
+  return (
+    <div>
+    <Head>
+      <title>Siyahul Haq</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    
+    <div style={{minHeight:"120vh"}}>
+      <></>
+    </div>
+  </div>
+  );
 }
