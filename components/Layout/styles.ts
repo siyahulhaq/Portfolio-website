@@ -3,17 +3,17 @@ import { Theme } from "../../Styles/global";
 
 export const Container = styled.div``;
 
-export const Main = styled.main``;
+export const Main = styled.main<{isMenuOpen: boolean}>`
+  ${({isMenuOpen}:{isMenuOpen: boolean})=> isMenuOpen && 'display: none;'}
+`;
 
 export const Header = styled.header<{ show: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
   box-sizing: border-box;
   background: linear-gradient(0deg,rgba(2,2,30,.0001),#02021e 98%);
   width: 100%;
   padding: 2rem 2rem 1rem;
   transition: all 0.3s ease-in-out;
+  z-index: 1;
   ${({ show }: { show: boolean }) =>
     show
       ? `
@@ -68,7 +68,7 @@ const button = (
     }
 `;
 
-export const LinkButton = styled.a`
+export const LinkButton = styled.a<{isMenuOpen?: boolean}>`
   ${({ theme }: { theme: Theme }) =>
     button(
       theme.colors.text,
@@ -76,8 +76,15 @@ export const LinkButton = styled.a`
       theme.colors.primary,
       theme.colors.border
     )};
+  opacity: ${({ isMenuOpen }: { isMenuOpen?: boolean }) => !isMenuOpen ? '1': '0'};
+  pointer-events: ${({ isMenuOpen }: { isMenuOpen?: boolean }) => !isMenuOpen ? 'all': 'none'};
+  transform: ${({ isMenuOpen }: { isMenuOpen?: boolean }) => !isMenuOpen ? 'none': 'scale(0.8)'};
   text-decoration: none;
 `;
+
+LinkButton.defaultProps = {
+  isMenuOpen: true,
+}
 
 export const Button = styled.button`
   background: none;

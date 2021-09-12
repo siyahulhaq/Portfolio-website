@@ -1,0 +1,26 @@
+[
+  {
+    "link": "/projects",
+    "bg1": "/assets/images/stars.svg",
+    "bg2": "",
+    "title": "Projects"
+  },
+  {
+    "link": "/services",
+    "bg1": "/assets/images/stars.svg",
+    "bg2": "",
+    "title": "Services"
+  },
+  {
+    "link": "/blogs",
+    "bg1": "/assets/images/stars.svg",
+    "bg2": "",
+    "title": "Blog"
+  },
+  {
+    "link": "/contact",
+    "bg1": "/assets/images/stars.svg",
+    "bg2": "",
+    "title": "Contact"
+  }
+]

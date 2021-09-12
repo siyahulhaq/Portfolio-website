@@ -11,6 +11,7 @@ import {
     MenuIcon,
 } from "./styles";
 import BackgroundEffect from "../BackgroundEffect";
+import NavMenu from "../NavMenu";
 
 const Layout: React.FC = ({ children }) => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -33,7 +34,8 @@ const Layout: React.FC = ({ children }) => {
 
     return (
         <Container>
-            <BackgroundEffect />
+            <BackgroundEffect isMenuOpen={menuOpen} />
+            <NavMenu closeMenu={() => setMenuOpen(false)} isMenuOpen={menuOpen} />
             <Header show={headerShow}>
                 <HeaderWrapper>
                     <Link href="/" passHref>
@@ -41,7 +43,7 @@ const Layout: React.FC = ({ children }) => {
                     </Link>
                     <div className="d-flex flex-align-center flex-justify-center">
                         <Link href="/contact" passHref>
-                            <LinkButton>Contact</LinkButton>
+                            <LinkButton isMenuOpen={menuOpen}>Contact</LinkButton>
                         </Link>
                         <Button onClick={() => setMenuOpen((prev) => !prev)}>
                             <MenuIcon menuOpen={menuOpen} />
@@ -49,7 +51,7 @@ const Layout: React.FC = ({ children }) => {
                     </div>
                 </HeaderWrapper>
             </Header>
-            <Main>{children}</Main>
+            <Main isMenuOpen={menuOpen}>{children}</Main>
         </Container>
     );
 };

@@ -3,7 +3,11 @@ import { BackgroundContainer, Star } from "./style";
 import useStarParalaxEffect from "./useStarParalaxEffect";
 import starPositions from "./starPositions.json";
 
-function BackgroundEffect() {
+interface BackgroundEffectProps {
+    isMenuOpen:boolean;
+}
+
+function BackgroundEffect({isMenuOpen}: BackgroundEffectProps) {
     const container = useStarParalaxEffect();
     
     const stars = useMemo(() => starPositions.map((position, index) => (
@@ -14,7 +18,7 @@ function BackgroundEffect() {
     )), []);
 
     return (
-        <BackgroundContainer ref={container}>
+        <BackgroundContainer isMenuOpen={isMenuOpen} ref={container}>
             {stars}
         </BackgroundContainer>
     );
