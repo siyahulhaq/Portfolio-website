@@ -154,3 +154,37 @@ export const MenuIcon = styled.span<{ menuOpen: boolean }>`
   `
       : ""}
 `;
+
+export const Footer = styled.footer`
+  margin: 3rem 5rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  .footer-social-container {
+    display: flex;
+  }
+
+  @media(max-width:900px) {
+    margin: 2rem 2.2rem;
+  }
+  
+  @media(max-width:768px) {
+    margin: 1rem 1.2rem;
+  }
+
+  .footer-greetings {
+    position: absolute;
+    left: 0;
+    color: white;
+    font-family: ${({ theme }: { theme: Theme }) => theme.fonts.primary};
+    span {
+      font-family: "gramatica";
+      font-size: 1.1rem;
+    }
+    @media(max-width:768px) {
+      position: relative;
+      margin: 1rem 0;
+  }
+  }
+`;

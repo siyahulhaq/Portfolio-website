@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="stylesheet" href="http://fonts.cdnfonts.com/css/sofia-pro" />
+          <link rel="stylesheet" href="/assets/fonts/gramatica.css" />
         </Head>
         <body>
           <Main />
